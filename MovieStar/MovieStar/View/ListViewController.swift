@@ -10,8 +10,8 @@ import UIKit
 
 protocol MovieService {
     func load(_ completion: @escaping ([MovieItemViewModel]) -> Void)
+    func onMovieSelection(_ item: MovieItemViewModel)
 }
-
 
 class ListViewController: UITableViewController {
 
@@ -40,6 +40,7 @@ class ListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.resuableIdentifier, for: indexPath) as? MovieCell {
             cell.configure(items[indexPath.row])
+            cell.favoriteImg.isHidden = !tableView.allowsSelection
             return cell
         }
         return UITableViewCell()
@@ -47,6 +48,7 @@ class ListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         items[indexPath.row].favorite.toggle()
+        service?.onMovieSelection(items[indexPath.row])
         tableView.reloadRows(at: [indexPath], with: .none)
     }
 }

@@ -12,8 +12,11 @@ struct MovieResponse: Codable {
 
 typealias CallbackFunc = ([Movie]) -> Void
 
-struct MovieManager {
+final class MovieManager {
     static let tmdbApiKey = "78a6a340867805be8573b2ec1789df75"
+    var favoriteModels = [MovieItemViewModel]()
+
+
     func fetchMovies(callback: @escaping CallbackFunc) {
         let url = "https://api.themoviedb.org/3/movie/popular"
         let params = [
@@ -31,16 +34,30 @@ struct MovieManager {
 }
 
 extension MovieManager: MovieService {
+    func onMovieSelection(_ item: MovieItemViewModel) {
+        if item.favorite {
+            favoriteModels.append(item)
+        } else {
+            favoriteModels.removeAll {
+                item.title == $0.title
+            }
+        }
+    }
     
     func load(_ completion: @escaping ([MovieItemViewModel]) -> Void) {
-        fetchMovies { foundMovies in
-            let movieViewModels = foundMovies.map { movie in
-                MovieItemViewModel(title: movie.title,
-                                   subTitle: movie.releaseDate,
-                                   imageUrl: movie.posterUrl,
-                                   favorite: false)
+        if favoriteModels.isEmpty {
+            fetchMovies { foundMovies in
+                let movieViewModels = foundMovies.map { movie in
+                    MovieItemViewModel(title: movie.title,
+                                       subTitle: movie.releaseDate,
+                                       imageUrl: movie.posterUrl,
+                                       favorite: false)
+                }
+                completion(movieViewModels)
             }
-            completion(movieViewModels)
+        } else {
+            completion(favoriteModels)
         }
+
     }
 }
