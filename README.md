@@ -1,7 +1,7 @@
 # MovieStar
 
 
-###This app contains two screens
+### This app contains two screens
 - Top movie list
 - My movie list
 
