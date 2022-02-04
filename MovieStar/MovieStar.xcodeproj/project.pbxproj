@@ -93,11 +93,19 @@
 				39CAFC2420F3EA6900070B6B /* MovieManager.swift */,
 				39607DEC20F54741004401A4 /* Helpers.swift */,
 				A5EC6D8F21ADA037006D0DC6 /* Movie.swift */,
+				E046479627AD6FF70032EAB6 /* View */,
+			);
+			path = MovieStar;
+			sourceTree = "<group>";
+		};
+		E046479627AD6FF70032EAB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				E046479027AD6AF60032EAB6 /* ListViewController.swift */,
 				E046479227AD6D8B0032EAB6 /* MovieCell.swift */,
 				E046479427AD6FA80032EAB6 /* MainTabBarViewController.swift */,
 			);
-			path = MovieStar;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
