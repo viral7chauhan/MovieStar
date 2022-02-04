@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieCell" customModule="MovieStar" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MovieCell" customModule="MovieStar" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="612" height="284"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IyE-2H-5rc">
+                    <rect key="frame" x="16" y="30" width="160" height="224"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="8z9-mq-Bxn"/>
+                        <constraint firstAttribute="height" constant="224" id="OzS-9U-uje"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiE-8b-R48">
+                    <rect key="frame" x="184" y="44" width="368" height="37"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_outline" translatesAutoresizingMaskIntoConstraints="NO" id="teX-xN-2FP">
+                    <rect key="frame" x="564" y="122" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="eBa-MQ-eHD"/>
+                        <constraint firstAttribute="height" constant="40" id="v3n-it-r11"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xmi-uK-fiI">
+                    <rect key="frame" x="184" y="89" width="368" height="23"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="teX-xN-2FP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0jY-sW-8p8"/>
+                <constraint firstItem="TiE-8b-R48" firstAttribute="leading" secondItem="IyE-2H-5rc" secondAttribute="trailing" constant="8" id="5lO-VC-ASe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TiE-8b-R48" secondAttribute="trailing" constant="60" id="JGd-zo-8N8"/>
+                <constraint firstItem="IyE-2H-5rc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="L4D-We-zjL"/>
+                <constraint firstItem="TiE-8b-R48" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="MHd-iW-NtZ"/>
+                <constraint firstItem="Xmi-uK-fiI" firstAttribute="trailing" secondItem="TiE-8b-R48" secondAttribute="trailing" id="UYW-rO-aVT"/>
+                <constraint firstItem="Xmi-uK-fiI" firstAttribute="top" secondItem="TiE-8b-R48" secondAttribute="bottom" constant="8" id="jIE-BP-LPS"/>
+                <constraint firstItem="IyE-2H-5rc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="mhs-dT-gxb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="teX-xN-2FP" secondAttribute="trailing" constant="8" id="pj1-l1-CSU"/>
+                <constraint firstItem="Xmi-uK-fiI" firstAttribute="leading" secondItem="TiE-8b-R48" secondAttribute="leading" id="whB-E0-K7t"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="favoriteImg" destination="teX-xN-2FP" id="MOB-GX-ssc"/>
+                <outlet property="placeholderImg" destination="IyE-2H-5rc" id="c1U-2t-nMj"/>
+                <outlet property="subTitleLabel" destination="Xmi-uK-fiI" id="fPi-QS-VK4"/>
+                <outlet property="titleLabel" destination="TiE-8b-R48" id="8RG-0Z-Ood"/>
+            </connections>
+            <point key="canvasLocation" x="5.7971014492753632" y="331.13839285714283"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="star_outline" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

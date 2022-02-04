@@ -12,7 +12,10 @@ class ListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        tableView.register(MovieCell.nib, forCellReuseIdentifier: MovieCell.resuableIdentifier)
+        tableView.rowHeight = 284
+        tableView.estimatedRowHeight = UITableView.automaticDimension
     }
 
     // MARK: - Table view data source
@@ -22,9 +25,11 @@ class ListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row)"
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.resuableIdentifier, for: indexPath) as? MovieCell {
+            cell.titleLabel.text = "HI \(indexPath.row)"
+            return cell
+        }
+        return UITableViewCell()
     }
 
 
@@ -74,3 +79,5 @@ class ListViewController: UITableViewController {
     */
 
 }
+
+

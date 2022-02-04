@@ -16,6 +16,7 @@
 		E046479127AD6AF60032EAB6 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046479027AD6AF60032EAB6 /* ListViewController.swift */; };
 		E046479327AD6D8B0032EAB6 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046479227AD6D8B0032EAB6 /* MovieCell.swift */; };
 		E046479527AD6FA80032EAB6 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046479427AD6FA80032EAB6 /* MainTabBarViewController.swift */; };
+		E046479827AD70D80032EAB6 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E046479727AD70D80032EAB6 /* MovieCell.xib */; };
 		E37C5D3408DA4D6049C12798 /* Pods_MovieStar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDBE09F3A4E887E6A29203E /* Pods_MovieStar.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		E046479027AD6AF60032EAB6 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E046479227AD6D8B0032EAB6 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		E046479427AD6FA80032EAB6 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		E046479727AD70D80032EAB6 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		E459D8E06F1B51882DEE9691 /* Pods-MovieStar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieStar.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieStar/Pods-MovieStar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				E046479027AD6AF60032EAB6 /* ListViewController.swift */,
 				E046479227AD6D8B0032EAB6 /* MovieCell.swift */,
 				E046479427AD6FA80032EAB6 /* MainTabBarViewController.swift */,
+				E046479727AD70D80032EAB6 /* MovieCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E046479827AD70D80032EAB6 /* MovieCell.xib in Resources */,
 				39CAFC1D20F3E9FC00070B6B /* LaunchScreen.storyboard in Resources */,
 				39CAFC1A20F3E9FC00070B6B /* Assets.xcassets in Resources */,
 			);
