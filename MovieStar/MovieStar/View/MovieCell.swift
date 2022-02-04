@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MovieCell: UITableViewCell {
 
@@ -14,6 +15,12 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var subTitleLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var placeholderImg: UIImageView!
+
+    var isFavorite: Bool = false {
+        didSet {
+            favoriteImg.image = isFavorite ? UIImage(named: "star_filled") : UIImage(named: "star_outline")
+        }
+    }
 
     static let nibName = "MovieCell"
 
@@ -27,6 +34,13 @@ class MovieCell: UITableViewCell {
 
     static var nib: UINib {
         return UINib(nibName: nibName, bundle: nil)
+    }
+
+    func configure(_ model: MovieItemViewModel) {
+        titleLabel.text = model.title
+        subTitleLabel.text = model.subTitle
+        placeholderImg.af.setImage(withURL: model.imageUrl)
+        isFavorite = model.favorite
     }
 }
 

@@ -29,3 +29,18 @@ struct MovieManager {
         }
     }
 }
+
+extension MovieManager: MovieService {
+    
+    func load(_ completion: @escaping ([MovieItemViewModel]) -> Void) {
+        fetchMovies { foundMovies in
+            let movieViewModels = foundMovies.map { movie in
+                MovieItemViewModel(title: movie.title,
+                                   subTitle: movie.releaseDate,
+                                   imageUrl: movie.posterUrl,
+                                   favorite: false)
+            }
+            completion(movieViewModels)
+        }
+    }
+}
