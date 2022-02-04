@@ -22,7 +22,7 @@ class ListViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(MovieCell.nib, forCellReuseIdentifier: MovieCell.resuableIdentifier)
-        tableView.rowHeight = 284
+        tableView.rowHeight = 140
         tableView.estimatedRowHeight = UITableView.automaticDimension
 
         service?.load({ [weak self] models in
