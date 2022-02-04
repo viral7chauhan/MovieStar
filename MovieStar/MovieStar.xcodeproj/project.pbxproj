@@ -15,6 +15,7 @@
 		A5EC6D9021ADA037006D0DC6 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC6D8F21ADA037006D0DC6 /* Movie.swift */; };
 		E046479127AD6AF60032EAB6 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046479027AD6AF60032EAB6 /* ListViewController.swift */; };
 		E046479327AD6D8B0032EAB6 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046479227AD6D8B0032EAB6 /* MovieCell.swift */; };
+		E046479527AD6FA80032EAB6 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046479427AD6FA80032EAB6 /* MainTabBarViewController.swift */; };
 		E37C5D3408DA4D6049C12798 /* Pods_MovieStar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDBE09F3A4E887E6A29203E /* Pods_MovieStar.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		ADDBE09F3A4E887E6A29203E /* Pods_MovieStar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieStar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E046479027AD6AF60032EAB6 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E046479227AD6D8B0032EAB6 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		E046479427AD6FA80032EAB6 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		E459D8E06F1B51882DEE9691 /* Pods-MovieStar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieStar.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieStar/Pods-MovieStar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 				A5EC6D8F21ADA037006D0DC6 /* Movie.swift */,
 				E046479027AD6AF60032EAB6 /* ListViewController.swift */,
 				E046479227AD6D8B0032EAB6 /* MovieCell.swift */,
+				E046479427AD6FA80032EAB6 /* MainTabBarViewController.swift */,
 			);
 			path = MovieStar;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				39CAFC2520F3EA6900070B6B /* MovieManager.swift in Sources */,
 				39607DED20F54741004401A4 /* Helpers.swift in Sources */,
 				E046479327AD6D8B0032EAB6 /* MovieCell.swift in Sources */,
+				E046479527AD6FA80032EAB6 /* MainTabBarViewController.swift in Sources */,
 				A5EC6D9021ADA037006D0DC6 /* Movie.swift in Sources */,
 				E046479127AD6AF60032EAB6 /* ListViewController.swift in Sources */,
 				39CAFC1120F3E9FB00070B6B /* AppDelegate.swift in Sources */,
