@@ -8,15 +8,15 @@
 
 import UIKit
 
-protocol MovieService {
+protocol MovieLoader {
     func load(_ completion: @escaping ([MovieItemViewModel]) -> Void)
-    func onMovieSelection(_ item: MovieItemViewModel)
 }
 
 class ListViewController: UITableViewController {
 
-    var service: MovieService?
-    var items = [MovieItemViewModel]()
+    var serviceAdapter: MovieLoader?
+    var onFavoriteClick: ((MovieItemViewModel) -> Void)?
+    private var items = [MovieItemViewModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +25,17 @@ class ListViewController: UITableViewController {
         tableView.rowHeight = 140
         tableView.estimatedRowHeight = UITableView.automaticDimension
 
-        service?.load({ [weak self] models in
-            self?.items = models
-            self?.tableView.reloadData()
-        })
+        loadItems()
     }
 
+    func loadItems() {
+        serviceAdapter?.load({ models in
+            DispatchQueue.main.async { [weak self] in
+                self?.items = models
+                self?.tableView.reloadData()
+            }
+        })
+    }
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,7 +53,7 @@ class ListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         items[indexPath.row].favorite.toggle()
-        service?.onMovieSelection(items[indexPath.row])
+        onFavoriteClick?(items[indexPath.row])
         tableView.reloadRows(at: [indexPath], with: .none)
     }
 }

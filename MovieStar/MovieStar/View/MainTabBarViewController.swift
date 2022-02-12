@@ -18,26 +18,45 @@ class MainTabBarController: UITabBarController {
     }
 
     private func setupViewControllers() {
-        let topMoviesViewController = ListViewController()
-        topMoviesViewController.service = manager
-        topMoviesViewController.tabBarItem = UITabBarItem(title: "Top", image: #imageLiteral(resourceName: "star_outline"), selectedImage: #imageLiteral(resourceName: "star_filled"))
-        let myMoviesViewController = ListViewController()
-        myMoviesViewController.items = manager.favoriteModels
-        myMoviesViewController.tabBarItem = UITabBarItem(title: "My Movies", image: #imageLiteral(resourceName: "movie_outline"), selectedImage: #imageLiteral(resourceName: "movie_filled"))
+        // First Movie List Controller
+        let listAdapter = MovieListAdapter()
+
+        let topMoviesViewController = topMovieListController()
+        topMoviesViewController.serviceAdapter = listAdapter
+        topMoviesViewController.onFavoriteClick = listAdapter.onMovieSelection
+
+        // Second Movie List Controller
+        let myMoviesViewController = favoriteListController()
+        let favoriteAdapter = MovieListFavoriteAdapter(listAdapter: listAdapter)
+        myMoviesViewController.serviceAdapter = favoriteAdapter
 
         viewControllers = [topMoviesViewController, myMoviesViewController]
         view.backgroundColor = .systemBackground
+    }
+
+    private func topMovieListController() -> ListViewController {
+        let viewController = ListViewController()
+
+        viewController.tabBarItem = UITabBarItem(title: "Top", image: #imageLiteral(resourceName: "star_outline"), selectedImage: #imageLiteral(resourceName: "star_filled"))
+
+        return viewController
+    }
+
+    private func favoriteListController() -> ListViewController {
+        let viewController = ListViewController()
+        viewController.tableView.allowsSelection = false
+
+        viewController.tabBarItem = UITabBarItem(title: "My Movies", image: #imageLiteral(resourceName: "movie_outline"), selectedImage: #imageLiteral(resourceName: "movie_filled"))
+
+        return viewController
     }
 }
 
 extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        let tabBarIndex = tabBarController.selectedIndex
-        if tabBarIndex == 1,
-        let myMoviesVC = (viewController as? ListViewController) {
-            myMoviesVC.items = manager.favoriteModels
-            myMoviesVC.tableView.allowsSelection = false
-            myMoviesVC.tableView.reloadData()
+        if tabBarController.selectedIndex == 1,
+            let myMoviesVC = (viewController as? ListViewController) {
+            myMoviesVC.loadItems()
         }
     }
 }

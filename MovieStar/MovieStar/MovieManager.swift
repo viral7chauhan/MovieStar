@@ -14,8 +14,6 @@ typealias CallbackFunc = ([Movie]) -> Void
 
 final class MovieManager {
     static let tmdbApiKey = "78a6a340867805be8573b2ec1789df75"
-    var favoriteModels = [MovieItemViewModel]()
-
 
     func fetchMovies(callback: @escaping CallbackFunc) {
         let url = "https://api.themoviedb.org/3/movie/popular"
@@ -33,7 +31,11 @@ final class MovieManager {
     }
 }
 
-extension MovieManager: MovieService {
+
+class MovieListAdapter: MovieLoader {
+    private lazy var mgr = MovieManager()
+    private(set) var favoriteModels = [MovieItemViewModel]()
+
     func onMovieSelection(_ item: MovieItemViewModel) {
         if item.favorite {
             favoriteModels.append(item)
@@ -43,21 +45,29 @@ extension MovieManager: MovieService {
             }
         }
     }
-    
-    func load(_ completion: @escaping ([MovieItemViewModel]) -> Void) {
-        if favoriteModels.isEmpty {
-            fetchMovies { foundMovies in
-                let movieViewModels = foundMovies.map { movie in
-                    MovieItemViewModel(title: movie.title,
-                                       subTitle: movie.releaseDate,
-                                       imageUrl: movie.posterUrl,
-                                       favorite: false)
-                }
-                completion(movieViewModels)
-            }
-        } else {
-            completion(favoriteModels)
-        }
 
+    func load(_ completion: @escaping ([MovieItemViewModel]) -> Void) {
+        mgr.fetchMovies { foundMovies in
+            let movieViewModels = foundMovies.map { movie in
+                MovieItemViewModel(title: movie.title,
+                                   subTitle: movie.releaseDate,
+                                   imageUrl: movie.posterUrl,
+                                   favorite: false)
+            }
+            completion(movieViewModels)
+        }
+    }
+}
+
+class MovieListFavoriteAdapter: MovieLoader {
+
+    private weak var listAdapter: MovieListAdapter?
+
+    init(listAdapter: MovieListAdapter) {
+        self.listAdapter = listAdapter
+    }
+
+    func load(_ completion: @escaping ([MovieItemViewModel]) -> Void) {
+        completion(listAdapter?.favoriteModels ?? [])
     }
 }
