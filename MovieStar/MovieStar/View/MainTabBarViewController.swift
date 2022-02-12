@@ -9,7 +9,6 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-    let manager = MovieManager()
 
     convenience init() {
         self.init(nibName: nil, bundle: nil)
@@ -20,14 +19,14 @@ class MainTabBarController: UITabBarController {
     private func setupViewControllers() {
         // First Movie List Controller
         let listAdapter = MovieListAdapter()
+        let favoriteAdapter = MovieListFavoriteAdapter()
 
         let topMoviesViewController = topMovieListController()
         topMoviesViewController.serviceAdapter = listAdapter
-        topMoviesViewController.onFavoriteClick = listAdapter.onMovieSelection
+        topMoviesViewController.onFavoriteClick = favoriteAdapter.onMovieSelection
 
         // Second Movie List Controller
         let myMoviesViewController = favoriteListController()
-        let favoriteAdapter = MovieListFavoriteAdapter(listAdapter: listAdapter)
         myMoviesViewController.serviceAdapter = favoriteAdapter
 
         viewControllers = [topMoviesViewController, myMoviesViewController]

@@ -19,9 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = rootViewController()
         window?.makeKeyAndVisible()
-        MovieManager().fetchMovies { movies in
-            print(movies)
-        }
     }
 
     private func rootViewController() -> MainTabBarController {
