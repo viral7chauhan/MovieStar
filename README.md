@@ -10,5 +10,6 @@ User can select and mark as favorite movie and that movie inserted into next scr
 
 ## App reuse ListViewController and only changes adapter at init time
 
+![Design](https://github.com/viral7chauhan/MovieStar/blob/main/MovieStar.drawio.png)
 ![gif](https://github.com/viral7chauhan/MovieStar/blob/main/MovieStar.gif)
  
