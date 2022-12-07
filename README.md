@@ -1,5 +1,6 @@
 # MovieStar
 
+[![CI](https://github.com/viral7chauhan/MovieStar/actions/workflows/CI.yml/badge.svg)](https://github.com/viral7chauhan/MovieStar/actions/workflows/CI.yml)
 
 ### This app contains two screens
 - Top movie list
