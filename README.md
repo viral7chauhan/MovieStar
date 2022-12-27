@@ -10,3 +10,14 @@ User can select and mark as favorite movie and that movie inserted into next scr
 
 ![gif](https://github.com/viral7chauhan/MovieStar/blob/main/MovieStar.gif)
  
+## BDD Specs
+
+### Story: Customer request to see latest movie and make them favorite
+
+### Narrative #1
+
+```
+   As a online customer
+   I want the app load top movie list
+   So I can see and mark as Favorite 
+```
